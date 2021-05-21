@@ -1,0 +1,43 @@
+{%  extends 'store/maindashboard.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+
+  <div class="col-lg-10">
+
+        <a class="btn btn-sm btn-danger" href="{% url 'enter_return_item'%}">Enter a return item</a>
+
+  </div>
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Item_name</th>
+					<th>Get_refund/Resend</th>
+					<th>Quantity</th>
+                    <th>Total_value</th>
+                    <th>Order_id</th>
+                    <th>Date</th>
+                    <th>Note</th>
+				</tr>
+				{% for r in returnitem %}
+				    <tr>
+						<td>{{r.item_name}}</td>
+						<td>{{r.category}}</td>
+						<td>{{r.quantity}}</td>
+						<td>${{r.total_value|floatformat:2}}</td>
+						<td>{{r.order}}</td>
+						<td>{{r.date}}</td>
+						<td>{{r.note}}</td>
+
+					</tr>
+				{% endfor %}
+
+            </table>
+		</div>
+    </div>
+</div>
+
+{% endblock %}

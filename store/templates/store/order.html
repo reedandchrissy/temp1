@@ -1,0 +1,59 @@
+{%  extends 'store/mainin.html' %}
+{% load static %}
+{% block content%}
+
+<div class="row">
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-6">
+		<h6>OrderId: {{order.transaction_id}}</h6>
+        <h6>OrderDate: {{order.date_ordered}}</h6>
+		<h6>Name: {{order.customer}}</h6>
+		<h6>Delivered date: {{order.delivered_date}}</h6>
+			<table class="table table-sm">
+
+				{% for ad in ads %}
+				<tr>
+
+					    <td>ShippingAddress: {{ad.address}} {{ad.city}}, {{ad.state}}, {{ad.zipcode}}</td>
+
+
+				{% endfor %}
+
+            </table>
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1">
+	</div>
+	<div class="col-md-6">
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Product</th>
+					<th>UnitPrice</th>
+					<th>Quantity</th>
+					<th>Subtotal</th>
+
+				</tr>
+
+				{% for i in items %}
+				<tr>
+					    <td> <img class="row-image" src="{{i.product.imageURL}}"></td>
+                        <td>{{i.product}}</td>
+					    <td>{{i.product.price|floatformat:2}}</td>
+					    <td>{{i.quantity}}</td>
+					    <td>{{i.get_total|floatformat:2}}</td>
+
+					</tr>
+
+				{% endfor %}
+
+			</table>
+			<h5>Total: ${{order.get_cart_total|floatformat:2}}</h5>
+
+	</div>
+</div>
+
+{% endblock %}

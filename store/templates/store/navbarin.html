@@ -1,0 +1,53 @@
+{% load static %}
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="{% url 'homein' %}">Home <span class="sr-only"></span></a>
+	      </li>
+              <li class="nav-item active">
+	        <a class="nav-link" href="{% url 'storein' %}">Store</a>
+			</li>
+	      <li class="nav-item active">
+	        <a class="nav-link" href="{% url 'commentsin' %}">Comments</a>
+	      </li>
+            <li class="nav-item active">
+	        <a class="nav-link" href="{% url 'contactin' %}">Contact us</a>
+	      </li>
+			{% if request.user.is_staff %}
+			 <li class="nav-item active">
+	        <a class="nav-link" href="{% url 'dashboard' %}">Control Panel</a>
+	      </li>
+			{% else %}
+			<li class="nav-item active">
+	        <a class="nav-link" href="{% url 'customer_setting' %}">Person_profile</a>
+	      </li>
+			{% endif %}
+	    </ul>
+
+
+        <div class="form-inline my-2 my-lg-0">
+	     	<span class="hello-msg">Hello, {{request.user}}</span>
+	    </div>
+
+	    <div class="form-inline my-2 my-lg-0">
+	     	<a href="{% url 'logout' %}"class="btn btn-warning">Logout</a>
+
+			{% if request.user.customer %}
+	     	<a href="{% url 'cart' %}">
+	    		<img  id="cart-icon" src="{% static 'images/cart.png' %}">
+	    	</a>
+			{% endif %}
+
+	    </div>
+       </div>
+	 </nav>

@@ -1,0 +1,46 @@
+{%  extends 'store/maindashboard.html' %}
+{% load static %}
+
+{% block content%}
+
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>OrderID</th>
+					<th>Customer</th>
+					<th>TransactionId</th>
+				</tr>
+				{% for o in orders %}
+				    <tr>
+						<td>{{o.id}}</td>
+						<td>{{o.customer}}</td>
+						<td>{{o.transaction_id}}</td>
+
+					</tr>
+				{% endfor %}
+
+            </table>
+		</div>
+    </div>
+</div>
+{% endblock %}

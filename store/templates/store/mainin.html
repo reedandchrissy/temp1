@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+           <title>lfgb</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+	<script type="text/javascript">
+		var user = '{{request.user}}'
+
+		function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getCookie('csrftoken')
+    </script>
+
+
+</head>
+<body>
+
+     <h2 style="text-align:center">Local Farm Group Buying</h2>
+     <h5 align="center" style="color:red">(we only delivery to Bergen County,NJ)</h5>
+
+{% include 'store/navbarin.html' %}
+
+{% block content%}
+
+{% endblock %}
+
+<hr>
+<div class="row">
+		<div class="col-lg-4">
+				<a class="nav-link" href="{% url 'contactin' %}">About us<span class="sr-only"></span></a>
+
+			</div>
+
+        <div class="col-lg-4">
+				<a class="nav-link" href="{% url 'homein' %}">Storage and Delivery <span class="sr-only"></span></a>
+
+
+			</div>
+
+        <div class="col-lg-4">
+				<a class="nav-link" href="{% url 'homein' %}">Get your refund <span class="sr-only"></span></a>
+
+			</div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+</html>

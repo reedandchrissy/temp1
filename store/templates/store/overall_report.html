@@ -1,0 +1,26 @@
+{%  extends 'store/maindashboard.html' %}
+{% load static %}
+
+{% block content%}
+<br>
+
+<div class="row">
+		<div class="col-lg-1">
+        </div>
+
+    <div class="col-lg-10">
+         <div class="box-element product">
+        <h2 style="text-align:center">{{overallreport.name}}</h2>
+        <p style="text-align:center">{{overallreport.period}}</p>
+        <hr>
+        <p>{{overallreport.content}}</p>
+         </div>
+    </div>
+
+    <div class="col-lg-1">
+        </div>
+
+</div>
+
+
+{% endblock %}

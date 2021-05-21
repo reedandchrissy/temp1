@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+
+       <div class="col-lg-6">
+				<h4><strong>  Email: localfarm@gmail.com</strong></h4>
+                <br>
+                <h4><strong>  Phone: 1234567856</strong></h4>
+                <br>
+				<h4><strong>  Farm address: 123 abc avenue NJ</strong></h4>
+                <hr>
+                <h4><strong>  Customer service :</strong></h4>
+                <br>
+                <h5><strong>  Email: localfarmservice@gmail.com</strong></h5>
+                <br>
+                <h5><strong>  Phone: 5234567896</strong></h5>
+                <hr>
+
+           <h5>Our farm is located in Bergen County, here fresh fruits and vegetables are grown all year round, chickens, ducks and cows are also raised on the farm. We are dedicated to providing fresh fruits, vegetables, and eggs for your table.</h5>
+
+       </div>
+
+       <div class="col-lg-6">
+				<img class="bigimage" src="{% static 'images/farm.jpg' %}">
+       </div>
+
+</div>
+
+{% endblock %}

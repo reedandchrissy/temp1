@@ -1,0 +1,30 @@
+{%  extends 'store/mainin.html' %}
+
+{% block content%}
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+                    <th>OrderID</th>
+					<th>Name</th>
+					<th>Address</th>
+				</tr>
+				{% for address in addresses %}
+				<tr>
+						<td>{{address.order.transaction_id}}</td>
+                        <td>{{address.order.customer}}</td>
+					    <td>{{address.address}},{{address.city}},{{address.state}},{{address.zipcode}}</td>
+					</tr>
+
+				{% endfor %}
+
+
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

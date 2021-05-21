@@ -1,0 +1,45 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+	<div class="col">
+	<h6 style="color:red"><strong>If you complete your order before {{end_time}}(Between Friday and Saturday), you would receive your order on {{delivery}}(Sunday).</strong></h6>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+
+</div>
+<br>
+
+<div class="row">
+		{% for product in products %}
+		<div class="col-lg-3">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<h7 style="color:blue"><strong>{{product.describe}}</strong></h7>
+				<hr>
+
+                <a class="btn btn-outline-secondary" href="{% url 'login' %}">Add to cart</a>
+				<h4 style="display: inline-block; float: right"><strong>${{product.price|floatformat:2}}</strong></h4>
+
+			</div>
+			<br>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

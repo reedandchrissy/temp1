@@ -1,0 +1,73 @@
+{%  extends 'store/maindashboard.html' %}
+
+{% load static %}
+{% block content%}
+
+<div class="row">
+		<div class="col-lg-4">
+
+            <div class="box-element product">
+
+            <table class="table table-sm">
+				<tr>
+					<th>Website-Reports</th>
+                    <th>Period</th>
+					<th>View</th>
+				</tr>
+				{% for w in websitereports %}
+				    <tr>
+						<td>{{w.name}}</td>
+						<td>{{w.period}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'website_report' w.id %}">View</a></td>
+					</tr>
+				{% endfor %}
+            </table>
+		</div>
+        </div>
+
+
+
+		<div class="col-lg-4">
+
+            <div class="box-element product">
+
+            <table class="table table-sm">
+				<tr>
+					<th>Farm-Reports</th>
+                    <th>Period</th>
+					<th>View</th>
+				</tr>
+				{% for f in farmreports %}
+				    <tr>
+						<td>{{f.name}}</td>
+						<td>{{f.period}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'farm_report' f.id %}">View</a></td>
+					</tr>
+				{% endfor %}
+            </table>
+		</div>
+        </div>
+
+		<div class="col-lg-4">
+
+            <div class="box-element product">
+
+            <table class="table table-sm">
+				<tr>
+					<th>Overall-Reports</th>
+                    <th>Period</th>
+					<th>View</th>
+				</tr>
+				{% for o in overallreports %}
+				    <tr>
+						<td>{{o.name}}</td>
+						<td>{{o.period}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'overall_report' o.id %}">View</a></td>
+					</tr>
+				{% endfor %}
+            </table>
+		</div>
+        </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<br>
+
+<div class="row">
+		<div class="col-lg-1">
+        </div>
+
+    <div class="col-lg-10">
+        <br>
+        <a class="btn btn-sm btn-danger" href="{% url 'login'%}">Write your comment</a>
+       <hr>
+         {% for c in comments %}
+         <div class="box-element product">
+        <h6>{{c.name}}:</h6>
+        <p>{{c.content}}</p>
+         </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-lg-1">
+        </div>
+
+</div>
+{% endblock %}

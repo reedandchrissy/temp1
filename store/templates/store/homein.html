@@ -1,0 +1,47 @@
+{% extends 'store/mainin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+
+       <div class="col-lg-4">
+		   <img class="thumbnail" src="{% static 'images/vegetable.jpg' %}">
+		   <hr>
+           <div class="box-element product">
+				<h5 style="color:red"><strong>Delivery Information：</strong></h5>
+				<h7 style="color:blue"><strong>Currently we only delivery to Bergen(NJ), please make sure your ShippingAddress is in this area before you place your order.</strong></h7>
+			    <br>
+			    <h7 style="color:blue"><strong>We deliver once a week, and the delivery date is every Sunday. these orders were paid between last Saturday and this Friday.</strong></h7>
+
+
+			</div>
+
+		</div>
+
+        <div class="col-lg-4">
+			<img class="thumbnail" src="{% static 'images/fruit.jpg' %}">
+			<hr>
+           <div class="box-element product">
+				<h6 style="color:red"><strong>Storage requirement and warranty period：</strong></h6>
+				<h7 style="color:blue"><strong>All our products are freshly picked one day before the delivery date. Please keep the products in the refrigerator after receiving them. Our warranty period is seven days. During this period, if there is a problem with the product, please contact our customer service in time.</strong></h7>
+
+
+			</div>
+
+		</div>
+	    <div class="col-lg-4">
+			<img class="thumbnail" src="{% static 'images/eggs.png' %}">
+			<hr>
+           <div class="box-element product">
+				<h5 style="color:red"><strong>Refund：</strong></h5>
+				<h7 style="color:blue"><strong>Orders not shipped: Before 5 pm every Friday, you can contact customer service to return your order without reason, and the refund will be returned to the bank account you provided.</strong></h7>
+			   <br>
+			   <h7 style="color:blue"><strong>The order has been received: products that have been delivered are not accepted for unreasonable returns. If the product has quality problems, please contact our customer service for the refund process.</strong></h7>
+
+
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

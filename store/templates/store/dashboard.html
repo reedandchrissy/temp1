@@ -1,0 +1,101 @@
+{%  extends 'store/maindashboard.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<br>
+<div class="row">
+	<div class="col-5">
+		<div class="card card-body">
+
+			<form method="get">
+				{{myFilter1.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+
+
+
+<br>
+
+
+
+			<table class="table table-sm">
+				<tr>
+					<th>Order</th>
+					<th>Paid</th>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Quantity</th>
+                    <th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for i in items %}
+				    <tr>
+						<td>{{i.order.id}}</td>
+						<td>{{i.order.complete}}</td>
+                        <td>{{i.product}}</td>
+						<td>{{i.product.price|floatformat:2}}</td>
+                        <td>{{i.quantity}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'updateorder' i.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'deleteorder' i.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+            </table>
+		</div>
+    </div>
+
+
+
+	<div class="col-7">
+		<div class="card card-body">
+			<form method="get">
+				{{myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+
+<br>
+
+
+			<table class="table table-sm">
+				<tr>
+					<th>OrderID</th>
+					<th>Paid</th>
+					<th>Customer</th>
+					<th>OrderDate</th>
+					<th>TransactionId</th>
+					<th>Delivered</th>
+					<th>Delivered_date</th>
+					<th>Update</th>
+					<th>Receipt</th>
+				</tr>
+				{% for o in orders %}
+				    <tr>
+						<td>{{o.id}}</td>
+						<td>{{o.complete}}</td>
+						<td>{{o.customer}}</td>
+						<td>{{o.date_ordered}}</td>
+						<td>{{o.transaction_id}}</td>
+						<td>{{o.delivered}}</td>
+						<td>{{o.delivered_date}}</td>
+						<td><a class="btn btn-sm btn-warning" href="{% url 'status' o.id %}">Update</a></td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'receipt' o.id %}">Receipt</a></td>
+
+					</tr>
+				{% endfor %}
+
+            </table>
+		</div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+

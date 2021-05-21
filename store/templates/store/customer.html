@@ -1,0 +1,62 @@
+{%  extends 'store/mainin.html' %}
+{% load static %}
+{% block content %}
+  <div class="row">
+		<div class="col-lg-12">
+			<div class="box-element" >
+                <h5 style="color:red"><strong>Our Policies：</strong></h5>
+                <h6 style="color:red"><strong>1. Delivery information: </strong></h6>
+                <h7 style="color:blue"><strong>Currently we only delivery to Bergen(NJ), please make sure your ShippingAddress is in this area before you place your order.</strong></h7>
+                <br>
+                <h7 style="color:blue"><strong>We deliver once a week, and the delivery date is every Sunday. these orders were paid between last Saturday and this Friday.</strong></h7>
+                <br>
+                <hr>
+                <h6 style="color:red"><strong>2. Warranty: </strong></h6>
+                <h7 style="color:blue"><strong>All our products are freshly picked one day before the delivery date. Please keep the products in the refrigerator after receiving them. Our warranty period is seven days. During this period, if there is a problem with the product, please contact our customer service in time.</strong></h7>
+                <hr>
+                <h6 style="color:red"><strong>3. Refund：</strong></h6>
+                <h7 style="color:blue"><strong>Orders not shipped: Before 5 pm every Friday, you can contact customer service to return your order without reason, and the refund will be returned to the bank account you provided.</strong></h7>
+			    <br>
+			    <h7 style="color:blue"><strong>The order has been received: products that have been delivered are not accepted for unreasonable returns. If the product has quality problems, please contact our customer service for the refund process.</strong></h7>
+
+
+            </div>
+        </div>
+  </div>
+
+
+<div class="row">
+   <div class="col-md">
+      <div class="card card-body">
+          <h4><strong>My orders: </strong></h4>
+         <table class="table table-sm">
+            <tr>
+                <th>OrderID</th>
+                <th>Complete</th>
+                <th>Total</th>
+                <th>Orderdate</th>
+                <th>View</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                  <td>{{order.transaction_id}}</td>
+                  <td>{{order.complete}}</td>
+                  <td>${{order.get_cart_total|floatformat:2}}</td>
+                  <td>{{order.date_ordered}}</td>
+                  <td><a class="btn btn-sm btn-info" href="{% url 'order' order.id %}">View</a></td>
+
+            </tr>
+
+
+            {% endfor %}
+
+
+
+         </table>
+      </div>
+   </div>
+</div>
+
+
+{% endblock content %}
+
